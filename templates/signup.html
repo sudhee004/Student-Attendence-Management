@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #174ea1;
+            /* background: linear-gradient(to bottom, #ee0979, #ff6a00); */
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 40vw;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container .remember-me {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .login-container .remember-me input {
+            margin-right: 10px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #174ea1;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-container .forgot-password {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .login-container .forgot-password a {
+            color: #174ea1;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>SIGNUP</h2>
+
+        <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+            <input type="text" placeholder="Username" name="Uname" required>
+            <input type="text" placeholder="userId" name="Uid" required>
+            <input type="password" placeholder="Password" name="pwd1" required>
+            <input type="password" placeholder="Enter again" name="pwd2" required>
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button type="submit">Signup</button>
+        </form>
+
+        <div class="forgot-password">
+            <p>Have an account? <a href="{%  url 'login' %}">Login</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

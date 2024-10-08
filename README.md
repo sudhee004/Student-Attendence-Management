@@ -1,2 +1,2 @@
-# Student Attendence Management
+# Attendence Management
  
